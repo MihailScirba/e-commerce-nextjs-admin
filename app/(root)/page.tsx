@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function SetupPage() {
   return (
-    <div>
-      <p>Hello Admin Dashboard</p>
-      <Button >Click me</Button>
-    </div>
+  <div className="p-4">
+  </div>
   );
 }
