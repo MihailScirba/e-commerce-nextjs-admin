@@ -18,7 +18,7 @@ const Modal = ({title, description, isOpen, onClose, children}: ModalProps) => {
   }
   return (
     <Dialog open={isOpen} onOpenChange={onChange}>
-      <DialogContent>
+      <DialogContent className="w-[90vw]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
