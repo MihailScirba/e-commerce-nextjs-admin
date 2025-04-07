@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import {
   ClerkProvider,
+  SignIn,
   SignInButton,
   SignOutButton,
   SignUpButton,
@@ -11,9 +12,10 @@ import {
 import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
+
 import { ModalProvider } from "@/providers/modal-provider";
-import prismadb from "@/lib/prismadb";
 import { ToasterProvider } from "@/providers/toast-provider";
+import { useRouter } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,9 +34,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
       <html lang="en">
@@ -50,10 +52,12 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </header>
+
           <SignedIn>
             <ToasterProvider />
             <ModalProvider />
           </SignedIn>
+
           {children}
         </body>
       </html>
